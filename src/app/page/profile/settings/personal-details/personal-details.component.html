@@ -1,0 +1,98 @@
+<div class="container main-container">
+    <div class="upper-section">
+        <header>
+            <button class="go-back d-flex align-items-center justify-content-center" (click)="goBack()">
+                <img src="../../../../../assets/icons/Go-back.svg" class="img-fluid">
+            </button>
+            <span>Personal Details</span>
+        </header>
+        <section class="content">
+            <form [formGroup]="apiService.profileUpdate">
+                <div class="user-avatar d-flex flex-column align-items-center">
+                    <div class="profile-preview">
+                        <div class="profile-preview-img" (click)="openUploadProfile()" id="imagePreview"
+                            [style.background-image]="imageData ? 'url(' + imageData + ')' : 'url(' + imageUrl + ')'">
+                        </div>
+                    </div>
+
+                    <label>Change Your Profile Image</label>
+                    <input type="file" id="profilePreview" #fileInput (change)="handleFileInput($event)"
+                        style="display:none;">
+                </div>
+                <div class="form-personal">
+                    <div class="Fname">
+                        <label>First name</label>
+                        <input formControlName="firstName" />
+                        <div class="alert-msg">
+                            <div
+                                *ngIf="apiService.profileUpdate.controls['firstName'].invalid && (apiService.profileUpdate.controls['firstName'].dirty || apiService.profileUpdate.controls['firstName'].touched)">
+                                <span *ngIf="apiService.profileUpdate?.get('firstName')?.hasError('pattern')">Only
+                                    alphabets
+                                    are
+                                    allowed.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Lname">
+                        <label>Last Name</label>
+                        <input formControlName="lastName">
+                        <div class="alert-msg">
+                            <div
+                                *ngIf="apiService.profileUpdate.controls['lastName'].invalid && (apiService.profileUpdate.controls['lastName'].dirty || apiService.profileUpdate.controls['lastName'].touched)">
+                                <span *ngIf="apiService.profileUpdate?.get('lastName')?.hasError('pattern')">Only
+                                    alphabets
+                                    are
+                                    allowed.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Email">
+                        <label>Email</label>
+                        <input formControlName="email">
+                        <div class="alert-msg">
+                            <div>
+                                <span *ngIf="apiService.profileUpdate?.get('email')?.hasError('existEmail')"> Email
+                                    Already Exists.</span>
+                                <div *ngIf="apiService.profileUpdate?.get('email')?.hasError('pattern')"> Invalid email
+                                    format.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <button (click)="updateDetail()" class="common-button">
+            <span>Update</span>
+            <img src="../../../../../assets/icons/GoForwardIconWhite.svg" class="img-fluid">
+        </button>
+    </footer>
+</div>
+<div class="popup-container" [ngClass]="{'show-popup': profileUpdateModel}" (click)="closePopup()">
+    <div class="popup-content" (click)="stopPropagation($event)">
+        <div class="popup-inner">
+            <div class="popup-header">
+                <svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M37.5 75C58.2107 75 75 58.2107 75 37.5C75 16.7893 58.2107 0 37.5 0C16.7893 0 0 16.7893 0 37.5C0 58.2107 16.7893 75 37.5 75Z"
+                        fill="#3A3B3B" />
+                    <rect opacity="0.01" x="18" y="18" width="40" height="40" fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M47.5 56H32.5C31.6716 56 31 55.3284 31 54.5C31 53.6716 31.6716 53 32.5 53H47.5C48.3284 53 49 52.3284 49 51.5V45.275C48.9245 44.4333 48.4197 43.6903 47.665 43.31C41.7856 40.9362 35.2144 40.9362 29.335 43.31C28.5803 43.6903 28.0755 44.4333 28 45.275V54.5C28 55.3284 27.3284 56 26.5 56C25.6716 56 25 55.3284 25 54.5V45.275C25.0663 43.2045 26.3145 41.3556 28.21 40.52C34.8107 37.8527 42.1893 37.8527 48.79 40.52C50.6855 41.3556 51.9337 43.2045 52 45.275V51.5C52 53.9853 49.9853 56 47.5 56ZM46 27.5C46 23.3579 42.6421 20 38.5 20C34.3579 20 31 23.3579 31 27.5C31 31.6421 34.3579 35 38.5 35C42.6421 35 46 31.6421 46 27.5ZM43 27.5C43 29.9853 40.9853 32 38.5 32C36.0147 32 34 29.9853 34 27.5C34 25.0147 36.0147 23 38.5 23C40.9853 23 43 25.0147 43 27.5Z"
+                        fill="white" />
+                </svg>
+                <div class="pop-up-title">
+                    <h6>Name and Email Updated</h6>
+                    <p>You have successfully updated your full name.</p>
+                </div>
+            </div>
+            <button (click)="closePopup()" class="common-button">
+                <span>Done</span>
+            </button>
+        </div>
+    </div>
+</div>

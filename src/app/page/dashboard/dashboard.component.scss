@@ -1,0 +1,205 @@
+@import '../../../theme/variables.scss';
+
+.app-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    header {
+        padding: 16px 12px 10px 12px;
+        display: flex;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        background: $white;
+        z-index: 10;
+
+        .main-title {
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 33px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: $text-dark;
+        }
+    }
+
+    .content {
+        padding: 0px 12px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        overflow: scroll;
+        .play-card {
+            border-radius: 22px;
+            padding: 24px 15.57px;
+            background-color: $charcoal-gray;
+            display: flex;
+            align-items: center;
+            color: $white;
+            gap: 22px;
+
+            p {
+                font-size: 17px;
+                font-weight: 600;
+                line-height: 23px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+
+            span {
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 17px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+
+        }
+
+        .carousel-section {
+            .carousel-title {
+                font-size: 19px;
+                font-weight: 600;
+                line-height: 25px;
+                letter-spacing: 0px;
+                text-align: left;
+                padding-bottom: 16px;
+            }
+
+            .carousel-scroll {
+                overflow-x: scroll;
+                overflow-y: hidden;
+                white-space: nowrap;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                scroll-behavior: smooth;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .cardOne,
+                .cardTwo {
+                    border-radius: 22px;
+                    padding: 32px 16px;
+                    background: $mint-green;
+                    position: relative;
+                    width: 255px;
+                    height: 160px;
+                    display: inline-block;
+                    flex: none;
+                    margin-right: 20px;
+
+                    .carousel-header {
+                        .card-title-part {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px;
+
+                            div {
+                                p {
+                                    font-size: 17px;
+                                    font-weight: 600;
+                                    line-height: 23px;
+                                    letter-spacing: 0px;
+                                    text-align: left;
+                                }
+
+                                span {
+                                    padding-top: 5px;
+                                    font-size: 13px;
+                                    font-weight: 400;
+                                    line-height: 17px;
+                                    letter-spacing: 0px;
+                                    text-align: left;
+
+                                }
+                            }
+
+                            .arrow-svg {
+                                width: 32px;
+                                height: 32px;
+                            }
+                        }
+                    }
+
+                    .carousel-card-img {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+
+                    }
+                }
+
+                .cardTwo {
+                    background: $ivory;
+                }
+            }
+        }
+
+    }
+
+    .categories-section {
+        padding-bottom: 6rem;
+        .categories-cards {
+            display: flex;
+            gap: 20px;
+        }
+
+        :nth-child(1) {
+            // margin-right: 20px;
+        }
+
+        .categories-title {
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 25px;
+            letter-spacing: 0px;
+            text-align: left;
+            padding-bottom: 16px;
+        }
+
+        .categories-card {
+            flex: 1;
+            background: $mint-green;
+            padding: 16px 28px;
+            border-radius: 22px;
+            width: 152px;
+            height: 152px;
+
+
+            .categories-icon {
+                margin-bottom: 20px;
+            }
+
+            .categories-card-title {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                p {
+                    margin: 0;
+                    font-size: 17px;
+                    font-weight: 600;
+                    line-height: 23px;
+                    letter-spacing: 0px;
+                    text-align: left;
+                }
+
+                span {
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height: 17px;
+                    letter-spacing: 0px;
+                    text-align: left;
+
+                }
+            }
+        }
+
+        .categories-card-two {
+            background: $ivory;
+        }
+    }
+}

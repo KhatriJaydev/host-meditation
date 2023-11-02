@@ -1,0 +1,176 @@
+<div class="main">
+    <ng-container *ngIf="firstScreen">
+        <section class="launch-screen fadeIn">
+            <div class="logoSVG">
+                <svg width="56" height="72" viewBox="0 0 56 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 16C0 7.16344 7.16344 0 16 0V72C7.16344 72 0 64.8366 0 56V16Z" fill="#3A3B3B" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M24 32C35.0457 32 44 24.8366 44 16C44 7.16344 35.0457 0 24 0" fill="#3A3B3B" />
+                    <path d="M24 40C41.6731 40 56 54.3269 56 72C38.3269 72 24 57.6731 24 40Z" fill="#3A3B3B" />
+                </svg>
+            </div>
+        </section>
+    </ng-container>
+    <ng-container *ngIf="secondScreen">
+        <section class="content screen-two" [@fadeIn]>
+            <div class="header-part">
+                <span (click)="skipScreen()">Skip</span>
+            </div>
+            <div class="center-image">
+                <img src="../../../assets/Onboarding/screentwo.svg">
+            </div>
+            <div class="footer-part">
+                <div class="footer-title">
+                    <h4>Reduce Stress</h4>
+                </div>
+                <div class="footer-description">
+                    <p>We are here to help you get rid of the stress you might have.</p>
+                </div>
+                <div class="footer-next-screen">
+                    <button (click)="goToNextScreen()">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64Z"
+                                fill="#3A3B3B" />
+                            <rect opacity="0.01" x="19" y="19" width="26" height="26" fill="white" stroke="white"
+                                stroke-width="2" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M42.5 32.999H21C20.4477 32.999 20 32.5517 20 32C20 31.4483 20.4477 31.001 21 31.001H41.17L35.17 25.7561C34.9003 25.5205 34.7768 25.1591 34.8462 24.808C34.9155 24.4568 35.1671 24.1693 35.5062 24.0537C35.8452 23.9381 36.2203 24.012 36.49 24.2476L43.49 30.3616C43.9629 30.774 44.1288 31.437 43.9057 32.0231C43.6826 32.6093 43.1177 32.9947 42.49 32.989L42.5 32.999ZM36.49 39.7524L40.49 36.2558C40.907 35.8917 40.9495 35.2588 40.585 34.8422C40.2205 34.4257 39.587 34.3832 39.17 34.7473L35.17 38.2439C34.753 38.608 34.7105 39.2409 35.075 39.6575C35.4395 40.0741 36.073 40.1166 36.49 39.7524Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </ng-container>
+    <ng-container *ngIf="thirdScreen">
+        <section class="content screen-three" [@fadeIn]>
+            <div class="header-part text-start">
+                <button (click)="goToBackScreen()">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.01" width="28" height="28" fill="white" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10.1737 22C9.93061 21.9997 9.69599 21.9108 9.51368 21.7501L2.51368 15.6331C2.04076 15.2205 1.8749 14.5572 2.098 13.9708C2.3211 13.3843 2.88597 12.9987 3.51368 13.0044H25.0037C25.556 13.0044 26.0037 13.4519 26.0037 14.0039C26.0037 14.5559 25.556 15.0034 25.0037 15.0034H4.83368L10.8337 20.2509C11.1454 20.5256 11.2546 20.9645 11.1079 21.3532C10.9612 21.7419 10.5893 21.9994 10.1737 22ZM6.83368 11.2553L10.8337 7.75697C11.1034 7.52129 11.2269 7.15968 11.1575 6.80835C11.0882 6.45703 10.8366 6.16937 10.4975 6.05372C10.1585 5.93808 9.78342 6.01202 9.51368 6.2477L5.51368 9.74599C5.24395 9.98167 5.1205 10.3433 5.18983 10.6946C5.25917 11.0459 5.51076 11.3336 5.84983 11.4492C6.1889 11.5649 6.56395 11.4909 6.83368 11.2553Z"
+                            fill="#3A3B3B" />
+                    </svg>
+                </button>
+            </div>
+            <div class="center-image">
+                <img src="../../../assets/Onboarding/screenthree.svg">
+            </div>
+            <div class="footer-part">
+                <div class="footer-title">
+                    <h4>Constant Support</h4>
+                </div>
+                <div class="footer-description">
+                    <p>We are always here to support you no matter what.</p>
+                </div>
+                <div class="footer-next-screen">
+                    <button (click)="goToNextScreen()">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64Z"
+                                fill="#3A3B3B" />
+                            <rect opacity="0.01" x="19" y="19" width="26" height="26" fill="white" stroke="white"
+                                stroke-width="2" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M42.5 32.999H21C20.4477 32.999 20 32.5517 20 32C20 31.4483 20.4477 31.001 21 31.001H41.17L35.17 25.7561C34.9003 25.5205 34.7768 25.1591 34.8462 24.808C34.9155 24.4568 35.1671 24.1693 35.5062 24.0537C35.8452 23.9381 36.2203 24.012 36.49 24.2476L43.49 30.3616C43.9629 30.774 44.1288 31.437 43.9057 32.0231C43.6826 32.6093 43.1177 32.9947 42.49 32.989L42.5 32.999ZM36.49 39.7524L40.49 36.2558C40.907 35.8917 40.9495 35.2588 40.585 34.8422C40.2205 34.4257 39.587 34.3832 39.17 34.7473L35.17 38.2439C34.753 38.608 34.7105 39.2409 35.075 39.6575C35.4395 40.0741 36.073 40.1166 36.49 39.7524Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </ng-container>
+    <ng-container *ngIf="fourthScreen">
+        <section class="content screen-fourth" [@fadeIn]>
+            <div class="header-part text-start">
+                <button (click)="goToBackScreen()">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.01" width="28" height="28" fill="white" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10.1737 22C9.93061 21.9997 9.69599 21.9108 9.51368 21.7501L2.51368 15.6331C2.04076 15.2205 1.8749 14.5572 2.098 13.9708C2.3211 13.3843 2.88597 12.9987 3.51368 13.0044H25.0037C25.556 13.0044 26.0037 13.4519 26.0037 14.0039C26.0037 14.5559 25.556 15.0034 25.0037 15.0034H4.83368L10.8337 20.2509C11.1454 20.5256 11.2546 20.9645 11.1079 21.3532C10.9612 21.7419 10.5893 21.9994 10.1737 22ZM6.83368 11.2553L10.8337 7.75697C11.1034 7.52129 11.2269 7.15968 11.1575 6.80835C11.0882 6.45703 10.8366 6.16937 10.4975 6.05372C10.1585 5.93808 9.78342 6.01202 9.51368 6.2477L5.51368 9.74599C5.24395 9.98167 5.1205 10.3433 5.18983 10.6946C5.25917 11.0459 5.51076 11.3336 5.84983 11.4492C6.1889 11.5649 6.56395 11.4909 6.83368 11.2553Z"
+                            fill="#3A3B3B" />
+                    </svg>
+                </button>
+            </div>
+            <div class="center-image">
+                <img src="../../../assets/Onboarding/screenfour.svg">
+            </div>
+            <div class="footer-part">
+                <div class="footer-title">
+                    <h4>Stay Energized</h4>
+                </div>
+                <div class="footer-description">
+                    <p>Our app will help you to stay energized all the time.</p>
+                </div>
+                <div class="footer-next-screen">
+                    <button (click)="goToNextScreen()">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64Z"
+                                fill="#3A3B3B" />
+                            <rect opacity="0.01" x="19" y="19" width="26" height="26" fill="white" stroke="white"
+                                stroke-width="2" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M42.5 32.999H21C20.4477 32.999 20 32.5517 20 32C20 31.4483 20.4477 31.001 21 31.001H41.17L35.17 25.7561C34.9003 25.5205 34.7768 25.1591 34.8462 24.808C34.9155 24.4568 35.1671 24.1693 35.5062 24.0537C35.8452 23.9381 36.2203 24.012 36.49 24.2476L43.49 30.3616C43.9629 30.774 44.1288 31.437 43.9057 32.0231C43.6826 32.6093 43.1177 32.9947 42.49 32.989L42.5 32.999ZM36.49 39.7524L40.49 36.2558C40.907 35.8917 40.9495 35.2588 40.585 34.8422C40.2205 34.4257 39.587 34.3832 39.17 34.7473L35.17 38.2439C34.753 38.608 34.7105 39.2409 35.075 39.6575C35.4395 40.0741 36.073 40.1166 36.49 39.7524Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </ng-container>
+    <ng-container *ngIf="fifthScreen">
+        <section class="content screen-fifth" [@fadeIn]>
+            <div class="header-part text-start">
+                <button (click)="goToBackScreen()">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.01" width="28" height="28" fill="white" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10.1737 22C9.93061 21.9997 9.69599 21.9108 9.51368 21.7501L2.51368 15.6331C2.04076 15.2205 1.8749 14.5572 2.098 13.9708C2.3211 13.3843 2.88597 12.9987 3.51368 13.0044H25.0037C25.556 13.0044 26.0037 13.4519 26.0037 14.0039C26.0037 14.5559 25.556 15.0034 25.0037 15.0034H4.83368L10.8337 20.2509C11.1454 20.5256 11.2546 20.9645 11.1079 21.3532C10.9612 21.7419 10.5893 21.9994 10.1737 22ZM6.83368 11.2553L10.8337 7.75697C11.1034 7.52129 11.2269 7.15968 11.1575 6.80835C11.0882 6.45703 10.8366 6.16937 10.4975 6.05372C10.1585 5.93808 9.78342 6.01202 9.51368 6.2477L5.51368 9.74599C5.24395 9.98167 5.1205 10.3433 5.18983 10.6946C5.25917 11.0459 5.51076 11.3336 5.84983 11.4492C6.1889 11.5649 6.56395 11.4909 6.83368 11.2553Z"
+                            fill="#3A3B3B" />
+                    </svg>
+                </button>
+            </div>
+            <div class="center-image">
+                <img src="../../../assets/Onboarding/screenfifth.png">
+            </div>
+            <div class="footer-part">
+                <div class="footer-title">
+                    <h4>Welcome to</h4>
+                </div>
+                <div class="footer-description">
+                    <p>Fat loss stressed and more mindful with meditation</p>
+                </div>
+                <div class="footer-next-screen">
+                    <div class="login-sign-up-button">
+                        <button class="common-button" (click)="signIn()">
+                            <span>LogIn</span>
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.01" x="1" y="1" width="26" height="26" fill="white" stroke="white"
+                                    stroke-width="2" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M24.5 14.999H3C2.44772 14.999 2 14.5517 2 14C2 13.4483 2.44772 13.001 3 13.001H23.17L17.17 7.75611C16.9003 7.52054 16.7768 7.15911 16.8462 6.80796C16.9155 6.45681 17.1671 6.16928 17.5062 6.0537C17.8452 5.93811 18.2203 6.01202 18.49 6.24758L25.49 12.3616C25.9629 12.774 26.1288 13.437 25.9057 14.0231C25.6826 14.6093 25.1177 14.9947 24.49 14.989L24.5 14.999ZM18.49 21.7524L22.49 18.2558C22.907 17.8917 22.9495 17.2588 22.585 16.8422C22.2205 16.4257 21.587 16.3832 21.17 16.7473L17.17 20.2439C16.753 20.608 16.7105 21.2409 17.075 21.6575C17.4395 22.0741 18.073 22.1166 18.49 21.7524Z"
+                                    fill="#3A3B3B" />
+                            </svg>
+
+                        </button>
+                        <button class="common-button" (click)="signUp()">
+                            <span>SignUp</span>
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.01" x="1" y="1" width="26" height="26" fill="white" stroke="white"
+                                    stroke-width="2" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M24.5 14.999H3C2.44772 14.999 2 14.5517 2 14C2 13.4483 2.44772 13.001 3 13.001H23.17L17.17 7.75611C16.9003 7.52054 16.7768 7.15911 16.8462 6.80796C16.9155 6.45681 17.1671 6.16928 17.5062 6.0537C17.8452 5.93811 18.2203 6.01202 18.49 6.24758L25.49 12.3616C25.9629 12.774 26.1288 13.437 25.9057 14.0231C25.6826 14.6093 25.1177 14.9947 24.49 14.989L24.5 14.999ZM18.49 21.7524L22.49 18.2558C22.907 17.8917 22.9495 17.2588 22.585 16.8422C22.2205 16.4257 21.587 16.3832 21.17 16.7473L17.17 20.2439C16.753 20.608 16.7105 21.2409 17.075 21.6575C17.4395 22.0741 18.073 22.1166 18.49 21.7524Z"
+                                    fill="white" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </ng-container>
+</div>

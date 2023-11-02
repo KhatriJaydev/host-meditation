@@ -1,0 +1,56 @@
+<div class="container main-container">
+    <header>
+        <button class="go-back d-flex align-items-center justify-content-center" (click)="goBack()">
+            <img src="../../../../../assets/icons/Go-back.svg" class="img-fluid">
+        </button>
+        <span>Notifications</span>
+    </header>
+    <section class="content">
+        <div class="toggle-chk-items">
+            <div class="toggle-chk-items">
+                <div class="toggle-chk-item" *ngFor="let notification of notifications">
+                    <img *ngIf="notification.is_sub_flag" src="../../../../../assets/icons/PushAlerts.svg"
+                        class="img-fluid">
+                    <img *ngIf="!notification.is_sub_flag" src="../../../../../assets/icons/DailyAlerts.svg"
+                        class="img-fluid">
+                    <h4>{{ notification.n_name }}</h4>
+                    <div class="checkbox-div d-flex align-items-center">
+                        <input type="checkbox" [id]="notification.notificationId" [(ngModel)]="notification.is_sub_flag"
+                            (change)="toggleNotification(notification.notificationId, notification.is_sub_flag)" />
+                        <label [for]="notification.notificationId">Toggle</label>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="toggle-chk-item">
+                <img *ngIf="pushAlerts" src="../../../../../assets/icons/PushAlerts.svg" class="img-fluid">
+                <img *ngIf="!pushAlerts" src="../../../../../assets/icons/DailyAlerts.svg" class="img-fluid">
+                <h4>Push Alerts</h4>
+                <div class="checkbox-div d-flex align-items-center">
+                    <input type="checkbox" id="PushAlerts" [(ngModel)]="pushAlerts" />
+                    <label for="PushAlerts">Toggle</label>
+                </div>
+            </div>
+            <div class="toggle-chk-item">
+                <img *ngIf="!dailyAlerts" src="../../../../../assets/icons/DailyAlerts.svg" class="img-fluid">
+                <img *ngIf="dailyAlerts" src="../../../../../assets/icons/PushAlerts.svg" class="img-fluid">
+                <h4>Daily Alerts</h4>
+                <div class="checkbox-div d-flex align-items-center">
+                    <input type="checkbox" id="DailyAlerts" [(ngModel)]="dailyAlerts" />
+                    <label for="DailyAlerts">Toggle</label>
+                </div>
+            </div>
+            <div class="toggle-chk-item">
+                <img *ngIf="!promotions" src="../../../../../assets/icons/Promotions.svg" class="img-fluid">
+                <img *ngIf="promotions" src="../../../../../assets/icons/PushAlerts.svg" class="img-fluid">
+                <h4>Promotions</h4>
+                <div class="checkbox-div d-flex align-items-center">
+                    <input type="checkbox" id="Promotions" [(ngModel)]="promotions" />
+                    <label for="Promotions">Toggle</label>
+                </div>
+            </div> -->
+        </div>
+
+        <div>
+        </div>
+    </section>
+</div>

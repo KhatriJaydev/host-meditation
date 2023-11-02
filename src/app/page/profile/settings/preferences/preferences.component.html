@@ -1,0 +1,44 @@
+<div class="container main-container">
+    <header>
+        <button class="go-back d-flex align-items-center justify-content-center" (click)="goBack()">
+            <img src="../../../../../assets/icons/Go-back.svg" class="img-fluid">
+        </button>
+        <span>Preferences</span>
+    </header>
+    <section class="content">
+        <div class="toggle-chk-items">
+            <!-- <div class="toggle-chk-item">
+                <img src="../../../../../assets/icons/DataAnalytics.svg" class="img-fluid">
+                <h4>Data Analytics</h4>
+                <div class="checkbox-div d-flex align-items-center">
+                    <input type="checkbox" id="dataAnalyticsToggle" [(ngModel)]="dataAnalytics" />
+                    <label for="dataAnalyticsToggle">Toggle</label>
+                </div>
+            </div>
+            <div class="toggle-chk-item">
+                <img src="../../../../../assets/icons/Newsletters.svg" class="img-fluid">
+                <h4>Newsletters</h4>
+                <div class="checkbox-div d-flex align-items-center">
+                    <input type="checkbox" id="newslettersToggle" [(ngModel)]="newsletters" />
+                    <label for="newslettersToggle">Toggle</label>
+                </div>
+            </div> -->
+            <div class="toggle-chk-items">
+                <div class="toggle-chk-item" *ngFor="let preference of preferences">
+                    <img *ngIf="preference.is_flag" src="../../../../../assets/icons/PushAlerts.svg" class="img-fluid">
+                    <img *ngIf="!preference.is_flag" src="../../../../../assets/icons/DailyAlerts.svg"
+                        class="img-fluid">
+                    <h4>{{ preference.p_name }}</h4>
+                    <div class="checkbox-div d-flex align-items-center">
+                        <input type="checkbox" [id]="preference.preferencesId" [(ngModel)]="preference.is_flag"
+                            (change)="togglePreference(preference.preferencesId, preference.is_flag)" />
+                        <label [for]="preference.preferencesId">Toggle</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+        </div>
+    </section>
+</div>

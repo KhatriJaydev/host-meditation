@@ -1,0 +1,100 @@
+@import '../../../theme/variables.scss';
+
+.app-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    header {
+        position: sticky;
+        top: 0;
+        padding: 16px 12px 10px 12px;
+        display: flex;
+        justify-content: space-between;
+        background: $white;
+        z-index: 10;
+
+
+        .main-title {
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 33px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: $text-dark;
+        }
+    }
+}
+
+.explor-content {
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow-y: scroll;
+    padding-bottom: 6rem;
+
+    .explor-stress-cards {
+        display: flex;
+        flex-direction: column;
+        border-radius: 22px;
+        justify-content: space-between;
+
+    }
+
+    .explor-stress-card {
+        width: 100%;
+        position: relative;
+        padding: 37px 16px;
+
+        .explor-card-header {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .explor-card-title {
+                letter-spacing: 0px;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                p {
+                    font-size: 19px;
+                    font-weight: 600;
+                    line-height: 25px;
+
+                }
+
+                span {
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 20px;
+
+
+                }
+            }
+        }
+
+        .explor-card-img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+}
+
+.explor-stress-cards:nth-child(1) {
+    background: $mint-green;
+
+}
+
+.explor-stress-cards:nth-child(2) {
+    background: $ivory;
+
+}
+
+.explor-stress-cards:nth-child(3) {
+    background: $warm-beige;
+    margin-bottom: 1rem;
+}

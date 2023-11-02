@@ -1,0 +1,127 @@
+@import '../../../theme/variables.scss';
+
+.sessions-modal-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+}
+
+.sessions-modal-content {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    animation: fadeInUp 0.4s ease forwards;
+    transform: translateY(100%);
+    overflow: auto;
+    position: relative;
+
+    header {
+        padding: 16px 12px 10px 12px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .model-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+
+        .model-title {
+            color: $text-dark;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 29px;
+            letter-spacing: 0px;
+            text-align: center;
+        }
+
+        .model-timer {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 23px;
+            letter-spacing: 0px;
+            text-align: center;
+
+        }
+
+        .play-pause-button {
+            background: $charcoal-gray;
+            width: 116px;
+            height: 116px;
+            border-radius: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .play-pause-type {
+            position: relative;
+
+            .progress-svg {
+                z-index: -2;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+}
+
+.recommended-stress-cards:nth-child(1) {
+    background: $ivory;
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.progress-svg {
+    svg {
+        transform: rotate(-90deg);
+    }
+
+    circle {
+        transition: all 1s linear;
+    }
+
+    #c1 {
+        transition: all 1s linear;
+        stroke-width: 1;
+        // stroke-linecap: round;
+        fill: transparent;
+    }
+
+    #c2 {
+        transition: all 1s linear;
+        stroke: rgba(58, 59, 59, 1);
+        stroke-width: 1;
+        // stroke-linecap: round;
+        fill: transparent;
+    }
+}
+
+.no-transition {
+    transition: none !important;
+}

@@ -1,0 +1,124 @@
+@import '../../../../theme/variables.scss';
+
+.app-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    header {
+        padding: 16px 12px 10px 12px;
+        display: flex;
+        justify-content: flex-start;
+
+    }
+
+    .content {
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 5rem;
+        overflow: scroll;
+
+        .problem-card {
+            .recommended-stress-cards {
+                display: flex;
+                flex-direction: column;
+                border-radius: 22px;
+                justify-content: space-between;
+            }
+
+            .recommended-stress-card {
+                width: 100%;
+                position: relative;
+                padding: 37px 16px;
+
+                .recommended-card-header {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    color: $text-dark;
+
+                    .recommended-card-title {
+                        letter-spacing: 0px;
+                        text-align: left;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        p {
+                            font-size: 19px;
+                            font-weight: 600;
+                            line-height: 25px;
+                        }
+
+                        span {
+                            font-size: 15px;
+                            font-weight: 400;
+                            line-height: 20px;
+                        }
+                    }
+                }
+
+                .recommended-card-img {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+
+        }
+
+        .sessions-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .recomm-title {
+                font-size: 19px;
+                font-weight: 600;
+                line-height: 25px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+
+            .list-of-sessions {
+                ul {
+                    display: flex;
+                    gap: 20px;
+                    flex-direction: column;
+
+                    li {
+                        display: flex;
+                        gap: 20px;
+                        align-items: center;
+
+                        .sessions-center {
+                            text-align: left;
+                            flex: 1;
+
+                            .sessions-title {
+                                font-size: 17px;
+                                font-weight: 700;
+                                line-height: 23px;
+                                letter-spacing: 0px;
+                            }
+
+                            .sessions-min {
+                                font-size: 13px;
+                                font-weight: 400;
+                                line-height: 17px;
+                                letter-spacing: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.recommended-stress-cards:nth-child(1) {
+    background: $ivory;
+}
+

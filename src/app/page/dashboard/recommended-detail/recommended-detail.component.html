@@ -1,0 +1,49 @@
+<div class="container app-main">
+    <header class="header" (click)="goBack()">
+        <button type="button" type="button">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect opacity="0.01" width="28" height="28" fill="white" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M10.1737 22C9.93061 21.9997 9.69599 21.9108 9.51368 21.7501L2.51368 15.6331C2.04076 15.2205 1.8749 14.5572 2.098 13.9708C2.3211 13.3843 2.88597 12.9987 3.51368 13.0044H25.0037C25.556 13.0044 26.0037 13.4519 26.0037 14.0039C26.0037 14.5559 25.556 15.0034 25.0037 15.0034H4.83368L10.8337 20.2509C11.1454 20.5256 11.2546 20.9645 11.1079 21.3532C10.9612 21.7419 10.5893 21.9994 10.1737 22ZM6.83368 11.2553L10.8337 7.75697C11.1034 7.52129 11.2269 7.15968 11.1575 6.80835C11.0882 6.45703 10.8366 6.16937 10.4975 6.05372C10.1585 5.93808 9.78342 6.01202 9.51368 6.2477L5.51368 9.74599C5.24395 9.98167 5.1205 10.3433 5.18983 10.6946C5.25917 11.0459 5.51076 11.3336 5.84983 11.4492C6.1889 11.5649 6.56395 11.4909 6.83368 11.2553Z"
+                    fill="#3A3B3B" />
+            </svg>
+        </button>
+    </header>
+    <section class="content">
+        <div class="problem-card">
+            <div class="recommended-stress-cards ">
+                <div class="recommended-stress-card">
+                    <div class="recommended-card-header">
+                        <div class="recommended-card-title">
+                            <p>{{problemTitle}}</p>
+                            <span>35 min</span>
+                        </div>
+                        <div class="recommended-card-arrow">
+                            <img src="../../../../assets/icons/playIcon.svg" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="recommended-card-img">
+                        <img src="../../../../assets/Problems/SleepBetter.svg" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sessions-section">
+            <div class="recomm-title">
+                Sessions
+            </div>
+            <div class="list-of-sessions">
+                <ul>
+                    <li (click)="openSessionModal(item)" *ngFor="let item of sessionsList" class="sessions-item">
+                        <img [src]="item.icon" class="img-fluid">
+                        <div class="sessions-center">
+                            <p class="sessions-title">{{item.sessionType}}</p>
+                            <span class="sessions-min">{{item.sessionMin}}</span>
+                        </div>
+                        <img src="../../../../assets/icons/Goforward.svg" class="img-fluid">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,60 @@
+<div class="sessions-modal-main">
+    <div class="sessions-modal-content">
+        <header class="header">
+            <button (click)="closeSessionModal()" type="button">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect opacity="0.01" width="28" height="28" fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10.1737 22C9.93061 21.9997 9.69599 21.9108 9.51368 21.7501L2.51368 15.6331C2.04076 15.2205 1.8749 14.5572 2.098 13.9708C2.3211 13.3843 2.88597 12.9987 3.51368 13.0044H25.0037C25.556 13.0044 26.0037 13.4519 26.0037 14.0039C26.0037 14.5559 25.556 15.0034 25.0037 15.0034H4.83368L10.8337 20.2509C11.1454 20.5256 11.2546 20.9645 11.1079 21.3532C10.9612 21.7419 10.5893 21.9994 10.1737 22ZM6.83368 11.2553L10.8337 7.75697C11.1034 7.52129 11.2269 7.15968 11.1575 6.80835C11.0882 6.45703 10.8366 6.16937 10.4975 6.05372C10.1585 5.93808 9.78342 6.01202 9.51368 6.2477L5.51368 9.74599C5.24395 9.98167 5.1205 10.3433 5.18983 10.6946C5.25917 11.0459 5.51076 11.3336 5.84983 11.4492C6.1889 11.5649 6.56395 11.4909 6.83368 11.2553Z"
+                        fill="#3A3B3B" />
+                </svg>
+            </button>
+        </header>
+        <section>
+            <div class="model-content">
+                <div class="model-title">{{modelTitle}}</div>
+                <div class="play-pause-type">
+                    <div class="play-pause-button" (click)="isPlaying ? stopTimer() : startTimer()">
+                        <span *ngIf="!isPlaying" class="play">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.01" width="48" height="48" fill="white" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M9.78998 44C8.8014 44 8 43.2052 8 42.2247V9.32919C7.99877 7.42587 9.02179 5.66656 10.6835 4.71437C12.3452 3.76218 14.3929 3.76186 16.0549 4.71352L39.3246 18.0812C40.9806 19.034 42 20.7892 42 22.688C42 24.5868 40.9806 26.342 39.3246 27.2948L17.8449 39.7216C17.29 40.0715 16.5864 40.0914 16.0123 39.7736C15.4381 39.4558 15.0859 38.8515 15.0948 38.1994C15.1037 37.5474 15.4723 36.9527 16.0549 36.6504L37.5346 24.2236C38.0866 23.906 38.4264 23.321 38.4264 22.688C38.4264 22.0551 38.0866 21.47 37.5346 21.1524L14.2649 7.78472C13.71 7.46696 13.0261 7.46763 12.4718 7.78647C11.9176 8.10532 11.5774 8.69369 11.5799 9.32919V42.2247C11.5799 43.2052 10.7786 44 9.78998 44Z"
+                                    fill="white" />
+                            </svg>
+                        </span>
+                        <span class="pause" *ngIf="isPlaying">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.01" width="48" height="48" fill="white" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M19 46H17.1667C16.1541 46 15.3333 45.1792 15.3333 44.1667C15.3333 43.1541 16.1541 42.3333 17.1667 42.3333V5.66667H11.6667V44.1667C11.6667 45.1792 10.8459 46 9.83333 46C8.82081 46 8 45.1792 8 44.1667V3.83333C8 2.82081 8.82081 2 9.83333 2H19C20.0125 2 20.8333 2.82081 20.8333 3.83333V44.1667C20.8333 45.1792 20.0125 46 19 46ZM41 44.1667V3.83333C41 2.82081 40.1792 2 39.1667 2C38.1541 2 37.3333 2.82081 37.3333 3.83333V42.3333H31.8333V5.66667C32.8459 5.66667 33.6667 4.84586 33.6667 3.83333C33.6667 2.82081 32.8459 2 31.8333 2H30C28.9875 2 28.1667 2.82081 28.1667 3.83333V44.1667C28.1667 45.1792 28.9875 46 30 46H39.1667C40.1792 46 41 45.1792 41 44.1667Z"
+                                    fill="white" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="progress-svg">
+                        <!-- <svg width="200px" height="200px" viewBox="0 0 42 42" class="donut">
+                            <circle id="c1" cx="21" cy="21" r="15.91549430918954" stroke-dasharray="100 0"
+                                stroke-dashoffset="100"></circle>
+                            <circle id="c2" cx="21" cy="21" r="15.91549430918954" stroke-dasharray="0 100"
+                                stroke-dashoffset="0"></circle>
+                        </svg> -->
+                        <svg width="200px" height="200px" viewBox="0 0 42 42" class="donut">
+                            <circle id="c1" cx="21" cy="21" r="15.91549430918954"
+                                [style.stroke-dasharray]="c1StrokeDasharray"
+                                [style.stroke-dashoffset]="c1StrokeDashoffset" [attr.stroke-linecap]="strokeLinecap">
+                            </circle>
+                            <circle id="c2" cx="21" cy="21" r="15.91549430918954"
+                                [style.stroke-dasharray]="c2StrokeDasharray" stroke-dashoffset="0"
+                                [attr.stroke-linecap]="strokeLinecap"></circle>
+                        </svg>
+                    </div>
+                    <audio #music id="music" [src]="audioLink" ></audio>
+                </div>
+                <div class="model-timer">{{formatTime(minutes)}} : {{formatTime(seconds)}}</div>
+            </div>
+        </section>
+    </div>
+</div>

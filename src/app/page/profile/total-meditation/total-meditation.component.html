@@ -1,0 +1,73 @@
+<div class="container main-container">
+    <header>
+        <div class="header-container">
+            <button type="button" (click)="goBack()" class="back-button-icon">
+                <img src="../../../../assets/icons/Go-back.svg" class="img-fluid">
+            </button>
+            <div class="main-title">
+                <span>
+                    Total Meditation
+                </span>
+            </div>
+        </div>
+    </header>
+    <section class="content">
+        <div class="meditation-card">
+            <div class="meditation-icon">
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M29 58C45.0163 58 58 45.0163 58 29C58 12.9837 45.0163 0 29 0C12.9837 0 0 12.9837 0 29C0 45.0163 12.9837 58 29 58Z"
+                        fill="#3A3B3B" />
+                    <rect opacity="0.01" x="15" y="15" width="28" height="28" fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M27.1313 38C25.4899 38 24.1594 36.6584 24.1594 35.0035V28.0118C24.1594 27.4601 23.7159 27.0129 23.1688 27.0129C22.9065 26.9896 22.647 27.0805 22.4555 27.2626C22.2842 27.4304 22.1876 27.6611 22.188 27.9019C22.1913 28.7853 21.8329 29.6309 21.1974 30.2391C20.5568 30.8436 19.6951 31.1513 18.8199 31.0881L17.9284 31.0282C17.3813 30.9923 16.9666 30.5161 17.0021 29.9645C17.0377 29.4128 17.51 28.9947 18.0571 29.0306L18.9487 29.0905C19.277 29.1129 19.5997 28.9972 19.8403 28.7709C20.0824 28.544 20.219 28.2251 20.2167 27.8919C20.2146 27.1086 20.5294 26.3583 21.0885 25.8143C21.6499 25.279 22.3961 24.9852 23.1688 24.9953C24.8101 24.9953 26.1406 26.3369 26.1406 27.9918V34.9835C26.1406 35.5352 26.5842 35.9824 27.1313 35.9824C27.6784 35.9824 28.1219 35.5352 28.1219 34.9835V23.9965C28.1219 22.3416 29.4524 21 31.0938 21C32.7351 21 34.0656 22.3416 34.0656 23.9965V31.9871C34.0656 32.5387 34.5091 32.9859 35.0563 32.9859C35.6034 32.9859 36.0469 32.5387 36.0469 31.9871C36.0469 30.3322 37.3774 28.9906 39.0188 28.9906H40.0094C40.5565 28.9906 41 29.4378 41 29.9894C41 30.5411 40.5565 30.9882 40.0094 30.9882H39.0188C38.4716 30.9882 38.0281 31.4354 38.0281 31.9871C38.0281 33.642 36.6976 34.9835 35.0563 34.9835C33.4149 34.9835 32.0844 33.642 32.0844 31.9871V23.9965C32.0844 23.4448 31.6409 22.9976 31.0938 22.9976C30.5466 22.9976 30.1031 23.4448 30.1031 23.9965V34.9835C30.1084 35.7817 29.7976 36.549 29.2397 37.1153C28.6818 37.6816 27.9229 38 27.1313 38Z"
+                        fill="white" />
+                </svg>
+
+            </div>
+            <div class="meditation-title">
+                <h6>120 hours</h6>
+                <p>You have spent meditating in total using our app.</p>
+            </div>
+        </div>
+        <div class="graph">
+            <div class="graph-header">
+                <div class="graph-title">
+                    <h6>Total Time</h6>
+                    <p>Apr 27 - May 03</p>
+                </div>
+                <div class="graph-hours">
+                    <h5>72 hours</h5>
+                </div>
+            </div>
+            <div class="graph-layout">
+                <div class="graph-bars">
+                    <ng-container *ngFor="let item of graphBars">
+                        <div class="graph-bar" [style.height.%]="item.height"></div>
+                    </ng-container>
+                </div>
+                <div class="graph-days">
+                    <ng-container *ngFor="let item of graphBars">
+                        <div class="graph-day" [innerHTML]="item.label"></div>
+                    </ng-container>
+                </div>
+            </div>
+            <!-- <ngx-charts-bar-vertical
+                    [view]="view"
+                    [scheme]="colorScheme"
+                    [results]="single"
+                    [gradient]="gradient"
+                    [xAxis]="showXAxis"
+                    [yAxis]="showYAxis"
+                    [legend]="showLegend"
+                    [showXAxisLabel]="showXAxisLabel"
+                    [showYAxisLabel]="showYAxisLabel"
+                    [xAxisLabel]="xAxisLabel"
+                    [roundEdges]="true"
+                    [roundDomains]="true"
+                    [barPadding] ="barPaddingValue"
+                    [showGridLines] = "false">
+              </ngx-charts-bar-vertical> -->
+        </div>
+    </section>
+</div>

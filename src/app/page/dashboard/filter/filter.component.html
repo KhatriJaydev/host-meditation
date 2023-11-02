@@ -1,0 +1,136 @@
+<div class="container app-main" [@fadeInRightAndSlide]>
+    <header>
+        <div class="header-container">
+            <button (click)="goBack()" type="button" class="back-button-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect opacity="0.01" width="28" height="28" fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10.1737 22C9.93061 21.9997 9.69599 21.9108 9.51368 21.7501L2.51368 15.6331C2.04076 15.2205 1.8749 14.5572 2.098 13.9708C2.3211 13.3843 2.88597 12.9987 3.51368 13.0044H25.0037C25.556 13.0044 26.0037 13.4519 26.0037 14.0039C26.0037 14.5559 25.556 15.0034 25.0037 15.0034H4.83368L10.8337 20.2509C11.1454 20.5256 11.2546 20.9645 11.1079 21.3532C10.9612 21.7419 10.5893 21.9994 10.1737 22ZM6.83368 11.2553L10.8337 7.75697C11.1034 7.52129 11.2269 7.15968 11.1575 6.80835C11.0882 6.45703 10.8366 6.16937 10.4975 6.05372C10.1585 5.93808 9.78342 6.01202 9.51368 6.2477L5.51368 9.74599C5.24395 9.98167 5.1205 10.3433 5.18983 10.6946C5.25917 11.0459 5.51076 11.3336 5.84983 11.4492C6.1889 11.5649 6.56395 11.4909 6.83368 11.2553Z"
+                        fill="#3A3B3B" />
+                </svg>
+            </button>
+            <div class="filter-title">
+                <span>
+                    Filter
+                </span>
+            </div>
+        </div>
+    </header>
+    <section class="content">
+        <div class="list-of-filter">
+            <ul>
+                <li (click)="openFilterModal(item.filterName)" *ngFor="let item of filterList" class="filter-item">
+                    <img [src]="item.icon" class="img-fluid">
+                    <div class="filter-center">
+                        <p class="filter-title">{{item.filterName}}</p>
+                        <div class="sessions-min">
+                            <span>{{item.selectedDuration}}</span>
+                            <span>{{item.selectedGoal}}</span>
+                        </div>
+                    </div>
+                    <img src="../../../assets/icons/Goforward.svg" class="img-fluid">
+                </li>
+            </ul>
+        </div>
+        <footer *ngIf="hasSelectedFilters()">
+            <button class="common-button" (click)="clearOpenPopUP()">
+                <span>Clear All</span>
+            </button>
+            <button class="common-button">
+                <span>Apply</span>
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect opacity="0.01" x="1" y="1" width="26" height="26" fill="white" stroke="white"
+                        stroke-width="2" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M24.5 14.999H3C2.44772 14.999 2 14.5517 2 14C2 13.4483 2.44772 13.001 3 13.001H23.17L17.17 7.75611C16.9003 7.52054 16.7768 7.15911 16.8462 6.80796C16.9155 6.45681 17.1671 6.16928 17.5062 6.0537C17.8452 5.93811 18.2203 6.01202 18.49 6.24758L25.49 12.3616C25.9629 12.774 26.1288 13.437 25.9057 14.0231C25.6826 14.6093 25.1177 14.9947 24.49 14.989L24.5 14.999ZM18.49 21.7524L22.49 18.2558C22.907 17.8917 22.9495 17.2588 22.585 16.8422C22.2205 16.4257 21.587 16.3832 21.17 16.7473L17.17 20.2439C16.753 20.608 16.7105 21.2409 17.075 21.6575C17.4395 22.0741 18.073 22.1166 18.49 21.7524Z"
+                        fill="white" />
+                </svg>
+            </button>
+        </footer>
+    </section>
+</div>
+
+<div class="filter-model filter-effect-1" [ngClass]="{'filter-show': isFilterOpen}">
+    <div class="filter-model-content container">
+        <header>
+            <div class="header-container">
+                <button type="button" class="back-button-icon" (click)="closeFilterModal()">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.01" width="28" height="28" fill="white" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10.1737 22C9.93061 21.9997 9.69599 21.9108 9.51368 21.7501L2.51368 15.6331C2.04076 15.2205 1.8749 14.5572 2.098 13.9708C2.3211 13.3843 2.88597 12.9987 3.51368 13.0044H25.0037C25.556 13.0044 26.0037 13.4519 26.0037 14.0039C26.0037 14.5559 25.556 15.0034 25.0037 15.0034H4.83368L10.8337 20.2509C11.1454 20.5256 11.2546 20.9645 11.1079 21.3532C10.9612 21.7419 10.5893 21.9994 10.1737 22ZM6.83368 11.2553L10.8337 7.75697C11.1034 7.52129 11.2269 7.15968 11.1575 6.80835C11.0882 6.45703 10.8366 6.16937 10.4975 6.05372C10.1585 5.93808 9.78342 6.01202 9.51368 6.2477L5.51368 9.74599C5.24395 9.98167 5.1205 10.3433 5.18983 10.6946C5.25917 11.0459 5.51076 11.3336 5.84983 11.4492C6.1889 11.5649 6.56395 11.4909 6.83368 11.2553Z"
+                            fill="#3A3B3B" />
+                    </svg>
+                </button>
+                <div class="filter-title">
+                    <span>
+                        {{filterTitle}}
+                    </span>
+                </div>
+            </div>
+        </header>
+        <section class="filter-content">
+            <div class="duration" *ngIf="filterTitle === 'Duration'">
+                <div class="duration-picker">
+                    <div class="show-duration-time">
+                        <p>{{ startTimeValue }} min</p>
+                        <p>{{ endTimeValue }} min</p>
+                    </div>
+                    <mat-slider min="1" max="30">
+                        <input matSliderStartThumb [(ngModel)]="startTimeValue" (ngModelChange)="onSliderChange()">
+                        <input matSliderEndThumb [(ngModel)]="endTimeValue" (ngModelChange)="onSliderChange()">
+                    </mat-slider>
+                </div>
+                <div class="done-button">
+                    <button type="button" (click)="getDuration()">Done</button>
+                </div>
+            </div>
+
+            <div class="filter-goal" *ngIf="filterTitle === 'Goal'">
+                <div class="goal-data">
+                    <ng-container *ngFor="let item of goalList; let i = index">
+                        <label class="goal-radio-container" [ngClass]="{'selected': selectedGoal === i}">
+                            {{item}}
+                            <input type="radio" name="radio" [value]="i" (click)="selectedGoal = i">
+                            <span class="checkmark"></span>
+                        </label>
+                    </ng-container>
+                </div>
+                <div class="done-button">
+                    <button type="button" (click)="getGoal(selectedGoal)">Done</button>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+</div>
+<div class="filter-overlay" [ngClass]="{'filter-show': isFilterOpen}"></div>
+
+<div class="popup-container" [ngClass]="{'show-popup': isPopUpOpen}">
+    <div class="popup-content" (click)="stopPropagation($event)">
+        <div class="popup-inner">
+            <div class="popup-header">
+                <img [src]="popupIcon" class="img-fluid">
+
+                <div class="pop-up-title">
+                    <h6>{{popUptitle}}</h6>
+                    <p>{{popupText}}</p>
+                </div>
+            </div>
+            <button (click)="clearAllitem()" class="common-button">
+                <span>{{poupButtonText}}</span>
+            </button>
+        </div>
+    </div>
+    <div class="close-pop-up">
+        <button (click)="closePopUp()">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="25" fill="white" />
+                <path
+                    d="M32.5377 17.4629C32.2395 17.1664 31.836 17 31.4154 17C30.9948 17 30.5913 17.1664 30.293 17.4629L25.0395 22.7165L19.8019 17.4789C19.4973 17.218 19.1056 17.0818 18.7049 17.0972C18.3043 17.1127 17.9242 17.2788 17.6407 17.5623C17.3572 17.8459 17.1911 18.2259 17.1756 18.6266C17.1601 19.0273 17.2964 19.419 17.5572 19.7236L22.7948 24.9612L17.5572 30.1988C17.3905 30.3416 17.2552 30.5172 17.1596 30.7147C17.0641 30.9122 17.0104 31.1273 17.0019 31.3466C16.9935 31.5658 17.0304 31.7844 17.1104 31.9887C17.1905 32.193 17.3119 32.3786 17.467 32.5337C17.6222 32.6889 17.8077 32.8103 18.012 32.8903C18.2163 32.9703 18.4349 33.0073 18.6542 32.9988C18.8734 32.9903 19.0885 32.9367 19.286 32.8411C19.4836 32.7455 19.6592 32.6102 19.8019 32.4435L25.0395 27.2059L30.2771 32.4435C30.5817 32.7043 30.9734 32.8406 31.3741 32.8251C31.7747 32.8097 32.1548 32.6436 32.4383 32.3601C32.7219 32.0765 32.8879 31.6965 32.9034 31.2958C32.9189 30.8951 32.7826 30.5034 32.5218 30.1988L27.2842 24.9612L32.5218 19.7236C32.6721 19.5766 32.7917 19.4014 32.8739 19.2079C32.9561 19.0145 32.9992 18.8067 33.0007 18.5966C33.0022 18.3864 32.962 18.178 32.8826 17.9835C32.8031 17.7889 32.6859 17.612 32.5377 17.4629Z"
+                    fill="#1A202C" />
+            </svg>
+        </button>
+    </div>
+</div>

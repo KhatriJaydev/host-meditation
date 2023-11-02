@@ -1,0 +1,87 @@
+@import '../../../../theme/variables.scss';
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    height: 100%;
+}
+
+header {
+    .header-container {
+        padding: 16px 12px 10px 12px;
+        display: flex;
+        align-items: center;
+
+        .main-title {
+            flex: 1;
+            text-align: center;
+
+            span {
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 29px;
+                color: $text-dark;
+            }
+        }
+    }
+}
+
+.content {
+    padding: 0 12px;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .longest-session-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .longest-session-card {
+            display: flex;
+            gap: 20px;
+            // background: $mint-green;
+            padding: 24px 16px;
+            border-radius: 22px;
+
+            .longest-session-title {
+                h6 {
+                    font-size: 17px;
+                    font-weight: 600;
+                    line-height: 23px;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height: 17px;
+                    letter-spacing: 0px;
+                    text-align: left;
+
+                }
+            }
+        }
+    }
+}
+
+.bottom-longest-share .nextButton {
+    margin: 64px auto 64px auto;
+}
+
+.longest-session-card:nth-child(1) {
+    background: $mint-green;
+}
+
+.longest-session-card:nth-child(2) {
+    background: $ivory;
+}
+
+.longest-session-card:nth-child(3) {
+    background: $warm-beige;
+}

@@ -1,0 +1,102 @@
+@import '../../../../theme/variables.scss';
+
+.app-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .header-container {
+        padding: 16px 12px 10px 12px;
+        display: flex;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        background: $white;
+        z-index: 10;
+
+        .job-title {
+            flex: 1;
+            text-align: center;
+
+            span {
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 29px;
+                color: $text-dark;
+            }
+        }
+    }
+
+    .job-content {
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+
+
+        .job-stress-cards {
+            display: flex;
+            flex-direction: column;
+            border-radius: 22px;
+            justify-content: space-between;
+
+        }
+
+        .job-stress-card {
+            width: 100%;
+            position: relative;
+            padding: 37px 16px;
+
+            .job-card-header {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                .job-card-title {
+                    letter-spacing: 0px;
+                    text-align: left;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    p {
+                        font-size: 19px;
+                        font-weight: 600;
+                        line-height: 25px;
+
+                    }
+
+                    span {
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 20px;
+
+
+                    }
+                }
+            }
+
+            .job-card-img {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+        }
+    }
+
+    .job-stress-cards:nth-child(1) {
+        background: $mint-green;
+
+    }
+
+    .job-stress-cards:nth-child(2) {
+        background: $ivory;
+
+    }
+
+    .job-stress-cards:nth-child(3) {
+        background: $warm-beige;
+
+    }
+}

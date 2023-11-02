@@ -1,0 +1,173 @@
+@import '../../../theme/variables.scss';
+
+.main {
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+}
+
+.logoSVG {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header-part {
+    padding: 8px 24px 16px 24px;
+    text-align: right;
+
+    span {
+        color: $text-dark;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 23px;
+        letter-spacing: 0px;
+    }
+}
+
+.center-image {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 45%;
+}
+
+.center-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.footer-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 33px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: $text-dark;
+}
+
+.footer-part {
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+.footer-description {
+    padding-top: 15px;
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+
+    p {
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 23px;
+        letter-spacing: 0px;
+        color: $text-dark;
+    }
+}
+
+.footer-next-screen {
+    padding-top: 60px;
+    text-align: center;
+}
+
+.screen-two {
+    overflow: hidden;
+    background-color: $mint-green;
+}
+
+.screen-three {
+    overflow: hidden;
+    background-color: $ivory;
+}
+
+.screen-fourth {
+    overflow: hidden;
+    background-color: $warm-beige;
+}
+
+.screen-fifth {
+    overflow: hidden;
+    background-color: $white;
+
+    .center-image {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        position: relative;
+        height: 40%;
+
+
+        img {
+            width: auto;
+            margin: 0 auto;
+        }
+    }
+
+
+
+    .footer-part {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+
+    .footer-next-screen {
+        padding-top: 30px;
+
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.login-sign-up-button {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .common-button:nth-child(1) {
+        background: transparent;
+        border: 1px solid $charcoal-gray;
+
+        span {
+            color: $text-dark;
+        }
+    }
+}

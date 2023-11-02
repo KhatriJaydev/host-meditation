@@ -1,0 +1,83 @@
+<div class="container">
+    <header>
+        <div class="back-button-icon">
+            <button (click)="goBack()">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect opacity="0.01" width="28" height="28" fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10.1737 22C9.93061 21.9997 9.69599 21.9108 9.51368 21.7501L2.51368 15.6331C2.04076 15.2205 1.8749 14.5572 2.098 13.9708C2.3211 13.3843 2.88597 12.9987 3.51368 13.0044H25.0037C25.556 13.0044 26.0037 13.4519 26.0037 14.0039C26.0037 14.5559 25.556 15.0034 25.0037 15.0034H4.83368L10.8337 20.2509C11.1454 20.5256 11.2546 20.9645 11.1079 21.3532C10.9612 21.7419 10.5893 21.9994 10.1737 22ZM6.83368 11.2553L10.8337 7.75697C11.1034 7.52129 11.2269 7.15968 11.1575 6.80835C11.0882 6.45703 10.8366 6.16937 10.4975 6.05372C10.1585 5.93808 9.78342 6.01202 9.51368 6.2477L5.51368 9.74599C5.24395 9.98167 5.1205 10.3433 5.18983 10.6946C5.25917 11.0459 5.51076 11.3336 5.84983 11.4492C6.1889 11.5649 6.56395 11.4909 6.83368 11.2553Z"
+                        fill="#3A3B3B" />
+                </svg>
+            </button>
+        </div>
+        <div class="signIN-title"> <span> Login
+            </span> </div>
+    </header>
+    <section class="content">
+        <form [formGroup]="apiService.loginFormModel">
+            <div class="input-from-user">
+                <label>Email</label>
+                <input formControlName="email" />
+                <div class="warn-msg">
+                    <div
+                        *ngIf="apiService.loginFormModel.controls['email'].invalid && (apiService.loginFormModel.controls['email'].dirty || apiService.loginFormModel.controls['email'].touched)">
+                        <span *ngIf="apiService.loginFormModel?.get('email')?.hasError('required')"> Email is
+                            required.</span>
+                        <span *ngIf="apiService.loginFormModel?.get('email')?.hasError('pattern')"> Invalid email
+                            format.</span>
+                        <span *ngIf="apiService.loginFormModel?.get('email')?.hasError('invalidEmail')"> Invalid
+                            email.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-from-user enter-pass">
+                <label>Password</label>
+                <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password" required
+                    autocomplete="new-password" />
+                <button type="button" (click)="togglePasswordVisibility()">
+                    <span *ngIf="showPassword">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.01" width="28" height="28" fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M13.9852 21C9.19812 20.8983 4.77501 18.4893 2.17978 14.5705C2.06321 14.4078 2.00048 14.2144 2 14.016C2 13.8086 2.06251 13.6056 2.17978 13.4324C4.69941 9.43564 9.16953 7 13.9852 7C18.8008 7 23.271 9.43564 25.7906 13.4324C26.0168 13.7166 26.0636 14.0992 25.9122 14.4271C25.7608 14.7551 25.436 14.975 25.0676 14.9989C24.6992 15.0228 24.3473 14.8468 24.1526 14.5413C21.9265 11.1493 18.1173 9.0539 13.9852 8.94828C10.0946 9.038 6.47656 10.9134 4.22725 14.0063C6.47656 17.0992 10.0946 18.9746 13.9852 19.0643C16.6769 19.0445 19.2782 18.1163 21.3461 16.4381C21.7753 16.1315 22.376 16.2066 22.7118 16.6089C23.0475 17.0111 23.0004 17.5991 22.6045 17.9457C20.1807 19.9042 17.1346 20.9836 13.9852 21ZM16.9815 13.8118C16.9815 12.2002 15.64 10.8937 13.9852 10.8937C13.4336 10.8937 12.9864 11.3292 12.9864 11.8664C12.9864 12.4036 13.4336 12.8391 13.9852 12.8391C14.5368 12.8391 14.984 13.2746 14.984 13.8118C14.984 14.349 14.5368 14.7845 13.9852 14.7845C13.4336 14.7845 12.9864 14.349 12.9864 13.8118C12.9864 13.2746 12.5393 12.8391 11.9877 12.8391C11.4361 12.8391 10.9889 13.2746 10.9889 13.8118C10.9889 15.4234 12.3304 16.7299 13.9852 16.7299C15.64 16.7299 16.9815 15.4234 16.9815 13.8118Z"
+                                fill="black" />
+                        </svg>
+                    </span>
+                    <span *ngIf="!showPassword"> <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+
+                            <rect opacity="0.01" width="28" height="28" fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M14 17.8232C12.9254 17.8218 11.9337 17.2531 11.4 16.3321C11.2029 16.0261 11.1917 15.6379 11.3707 15.3212C11.5497 15.0045 11.8902 14.8102 12.2575 14.8151C12.6247 14.82 12.9597 15.0233 13.13 15.3447C13.3536 15.7343 13.8148 15.9266 14.2535 15.8131C14.6922 15.6995 14.9986 15.3087 15 14.8609C15.0012 14.6879 14.9564 14.5176 14.87 14.3672C14.6729 14.0611 14.6617 13.6729 14.8407 13.3562C15.0197 13.0395 15.3602 12.8452 15.7275 12.8501C16.0947 12.855 16.4297 13.0583 16.6 13.3797C17.1361 14.2966 17.1359 15.4262 16.5995 16.3428C16.0632 17.2595 15.0721 17.8238 14 17.8232ZM25.82 15.4533C25.933 15.2755 25.9952 15.0708 26 14.8609C25.9995 14.6595 25.9367 14.4631 25.82 14.298C24.9582 13.0594 23.9286 11.9431 22.76 10.9803C22.3347 10.6312 21.7035 10.6887 21.35 11.1086C20.9965 11.5285 21.0547 12.1519 21.48 12.5009C22.3368 13.2042 23.1085 14.0027 23.78 14.8806C21.528 18.0268 17.9007 19.9349 14 20.0251C11.9368 20.0228 9.91372 19.4628 8.15 18.4058C7.39974 17.9529 6.43793 18.0371 5.78 18.6131L4.19 20.0054C3.77579 20.368 3.73773 20.9936 4.105 21.4026C4.47227 21.8116 5.10579 21.8492 5.52 21.4865L7.13 20.1041C9.20204 21.3429 11.5778 21.9985 14 22C18.7968 21.8924 23.2262 19.4391 25.82 15.4533ZM4.65 16.9246C4.85158 16.7544 4.97641 16.5121 4.99704 16.251C5.01767 15.9899 4.9324 15.7314 4.76 15.5323C4.57 15.3151 4.39 15.088 4.22 14.8609C6.47203 11.7147 10.0993 9.80663 14 9.71636C15.0766 9.71551 16.1477 9.8685 17.18 10.1706C17.8275 10.3661 18.5312 10.2249 19.05 9.79535L21.63 7.72175C22.0263 7.36989 22.0735 6.77297 21.7374 6.36462C21.4012 5.95627 20.7998 5.88001 20.37 6.19123L17.75 8.27471C16.5331 7.91582 15.27 7.73289 14 7.73162C9.20702 7.83489 4.77844 10.2803 2.18 14.2585C2.06353 14.4421 2.0012 14.6541 2 14.8707C2.00048 15.0721 2.06329 15.2685 2.18 15.4336C2.51006 15.905 2.86383 16.3598 3.24 16.7962C3.41238 16.9953 3.65779 17.1185 3.92222 17.1389C4.18665 17.1593 4.44844 17.0751 4.65 16.9049V16.9246Z"
+                                fill="black" />
+                        </svg>
+                    </span></button>
+                <div class="warn-msg">
+                    <div *ngIf="apiService.loginFormModel.controls['password']?.dirty || apiService.loginFormModel.controls['password']?.touched"
+                        class="error-message">
+                        <span *ngIf="apiService.loginFormModel.controls['password']?.hasError('required')">Password is
+                            required.</span>
+                        <span *ngIf="apiService.loginFormModel?.get('password')?.hasError('invalidPassword')"> Invalid
+                            password.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="forgot-pass">
+                <button type="button" (click)="forgotPassword()">Forgot Password</button>
+            </div>
+        </form>
+        <button type="button" class="common-button" (click)="userLogin()">
+            <span> Login</span>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect opacity="0.01" x="1" y="1" width="26" height="26" fill="white" stroke="white" stroke-width="2" />
+
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M24.5 14.999H3C2.44772 14.999 2 14.5517 2 14C2 13.4483 2.44772 13.001 3 13.001H23.17L17.17 7.75611C16.9003 7.52054 16.7768 7.15911 16.8462 6.80796C16.9155 6.45681 17.1671 6.16928 17.5062 6.0537C17.8452 5.93811 18.2203 6.01202 18.49 6.24758L25.49 12.3616C25.9629 12.774 26.1288 13.437 25.9057 14.0231C25.6826 14.6093 25.1177 14.9947 24.49 14.989L24.5 14.999ZM18.49 21.7524L22.49 18.2558C22.907 17.8917 22.9495 17.2588 22.585 16.8422C22.2205 16.4257 21.587 16.3832 21.17 16.7473L17.17 20.2439C16.753 20.608 16.7105 21.2409 17.075 21.6575C17.4395 22.0741 18.073 22.1166 18.49 21.7524Z"
+                    fill="white" />
+            </svg>
+        </button>
+        <button type="button" class="no-account" (click)="signUP()">
+            <p> Don’t have an account! </p> Sign Up
+        </button>
+    </section>
+</div>

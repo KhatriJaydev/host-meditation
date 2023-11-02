@@ -1,0 +1,134 @@
+@import '../../../../theme/variables.scss';
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+header {
+    .header-container {
+        padding: 16px 12px 10px 12px;
+        display: flex;
+        align-items: center;
+
+        .main-title {
+            flex: 1;
+            text-align: center;
+
+            span {
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 29px;
+                color: $text-dark;
+            }
+        }
+    }
+}
+
+.content {
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    .meditation-card {
+        display: flex;
+        gap: 20px;
+        background: $mint-green;
+        padding: 24px 16px;
+        border-radius: 22px;
+
+        .meditation-title {
+            h6 {
+                font-size: 17px;
+                font-weight: 600;
+                line-height: 23px;
+                letter-spacing: 0px;
+                text-align: left;
+                margin-bottom: 5px;
+            }
+
+            p {
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 17px;
+                letter-spacing: 0px;
+                text-align: left;
+
+            }
+        }
+    }
+
+    .graph {
+        .graph-header {
+            text-align: left;
+            color: rgba(26, 32, 44, 1);
+            letter-spacing: 0px;
+
+            .graph-title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 15px;
+                line-height: 20px;
+
+                h6 {
+                    font-weight: 400;
+                }
+
+                p {
+                    font-weight: 600;
+                }
+            }
+
+            .graph-hours {
+                margin-top: 5px;
+
+                h5 {
+                    font-size: 25px;
+                    font-weight: 700;
+                    line-height: 33px;
+                }
+            }
+        }
+
+        .graph-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .graph-bars {
+                height: 200px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+
+            .graph-bar {
+                width: 15px;
+                border-radius: 24px;
+                background-color: $charcoal-gray;
+            }
+
+        }
+
+        .graph-days {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            .graph-day {
+                width: 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
+
+// .ngx-charts-outer {
+//     -webkit-animation: chartFadeIn linear .6s;
+//     animation: chartFadeIn linear .6s;
+// }

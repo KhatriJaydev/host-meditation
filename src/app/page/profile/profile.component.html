@@ -1,0 +1,105 @@
+<div class="container app-main" [@fade]>
+    <header class="header">
+        <span class="main-title">Profile</span>
+        <button type="button" (click)="goToSettings()">
+            <img src="../../../assets/icons/settings.svg" class="img-fluid">
+        </button>
+    </header>
+    <div class="content">
+        <section>
+            <div class="user-profile-section">
+                <div class="user-avatar">
+                    <img *ngIf="profileImage" [src]="imageUrl + profileImage" class="img-fluid">
+                    <img *ngIf="!profileImage" src="../../../assets/icons/userimg.svg" class="img-fluid">
+                </div>
+                <div class="user-name">
+                    <h6>{{firstName}} {{lastName}}</h6>
+                    <p>{{email}}</p>
+                </div>
+            </div>
+        </section>
+        <ng-container *ngIf="isAchievementAvailable">
+            <div class="achieved-card">
+                <div class="achieved-title">
+                    <h6>Target Achieved</h6>
+                    <p>Learn more about everything that you have achieved below.</p>
+                </div>
+                <div class="achieved-icon" class="d-flex align-items-center justify-content-center">
+                    <img src="../../../assets/icons/achieved-icon.svg" class="img-fluid">
+                </div>
+            </div>
+        </ng-container>
+        <section>
+            <div class="progress-section">
+                <div class="progress-title">Progress</div>
+                <div class="progress-cards">
+                    <div class="progress-card" (click)="showProgress('totalMeditation')">
+                        <div class="progress-icon">
+                            <svg width="26" height="27" viewBox="0 0 26 27" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.01" x="0.155029" y="0.901367" width="25.6901" height="25.6901"
+                                    fill="white" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.3332 21.2393C9.86908 21.2393 8.68221 20.0567 8.68221 18.5979V12.4344C8.68221 11.9482 8.28658 11.554 7.79855 11.554C7.56465 11.5334 7.3331 11.6135 7.16232 11.7741C7.00947 11.922 6.92338 12.1253 6.92373 12.3376C6.92663 13.1163 6.60692 13.8618 6.04008 14.3979C5.4686 14.9308 4.69998 15.2021 3.9193 15.1464L3.12401 15.0935C2.63598 15.0619 2.26607 14.6421 2.2978 14.1558C2.32952 13.6695 2.75086 13.3009 3.23889 13.3325L4.03418 13.3854C4.32698 13.4052 4.61492 13.3032 4.82947 13.1036C5.04546 12.9037 5.16729 12.6226 5.16526 12.3288C5.16341 11.6383 5.44423 10.9769 5.94287 10.4974C6.44371 10.0255 7.10931 9.7665 7.79855 9.77537C9.26264 9.77537 10.4495 10.958 10.4495 12.4168V18.5803C10.4495 19.0665 10.8451 19.4607 11.3332 19.4607C11.8212 19.4607 12.2168 19.0665 12.2168 18.5803V8.89488C12.2168 7.43604 13.4037 6.25342 14.8678 6.25342C16.3319 6.25342 17.5188 7.43604 17.5188 8.89488V15.9388C17.5188 16.4251 17.9144 16.8193 18.4024 16.8193C18.8904 16.8193 19.2861 16.4251 19.2861 15.9388C19.2861 14.48 20.473 13.2973 21.937 13.2973H22.8207C23.3087 13.2973 23.7044 13.6915 23.7044 14.1778C23.7044 14.6641 23.3087 15.0583 22.8207 15.0583H21.937C21.449 15.0583 21.0534 15.4525 21.0534 15.9388C21.0534 17.3976 19.8665 18.5803 18.4024 18.5803C16.9383 18.5803 15.7515 17.3976 15.7515 15.9388V8.89488C15.7515 8.4086 15.3558 8.0144 14.8678 8.0144C14.3798 8.0144 13.9841 8.4086 13.9841 8.89488V18.5803C13.9888 19.2839 13.7116 19.9603 13.214 20.4595C12.7163 20.9586 12.0393 21.2393 11.3332 21.2393Z"
+                                    fill="#3A3B3B" />
+                            </svg>
+
+
+                        </div>
+                        <div class="progress-card-title">
+                            <p>120 h</p>
+                            <span>Total meditation</span>
+                        </div>
+                    </div>
+                    <div class="progress-card progress-card-two" (click)="showProgress('longestSession')">
+                        <div class="progress-icon">
+                            <svg width="26" height="27" viewBox="0 0 26 27" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.01" x="0.155029" y="0.901367" width="25.6901" height="25.6901"
+                                    fill="white" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.39478 24.4504C4.86569 24.4504 4.43677 24.0251 4.43677 23.5003V5.89424C4.43611 4.87555 4.98364 3.93396 5.87299 3.42433C6.76234 2.91471 7.85832 2.91453 8.74783 3.42388L21.202 10.5784C22.0884 11.0884 22.6339 12.0278 22.6339 13.044C22.6339 14.0603 22.0884 14.9997 21.202 15.5096L9.70585 22.1606C9.40887 22.3478 9.0323 22.3585 8.72502 22.1884C8.41774 22.0184 8.22921 21.6949 8.23397 21.3459C8.23873 20.9969 8.43602 20.6786 8.74783 20.5169L20.244 13.8659C20.5395 13.6959 20.7213 13.3828 20.7213 13.044C20.7213 12.7053 20.5395 12.3921 20.244 12.2222L7.78982 5.06762C7.49282 4.89755 7.12681 4.89791 6.83015 5.06856C6.53349 5.2392 6.35143 5.55411 6.3528 5.89424V23.5003C6.3528 24.0251 5.92388 24.4504 5.39478 24.4504Z"
+                                    fill="#3A3B3B" />
+                            </svg>
+
+
+                        </div>
+                        <div class="progress-card-title">
+                            <p>35 min</p>
+                            <span>Longest session</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <ng-container>
+            <section>
+                <div class="achievements-section">
+                    <div class="achievements-title">
+                        Achievements
+                    </div>
+                    <div class="achievements-trophy" *ngIf="isAchievementAvailable">
+                        <div class="achievements-text">
+                            The art of being happy lies in the power of extracting pleasure from ordinary life.
+                        </div>
+                        <div class="achievements-img">
+                            <img src="../../../assets/icons/trophy-svg.svg" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="list-of-achievements" *ngIf="isAchievementAvailable">
+                        <ul>
+                            <li (click)="showAchievements(item)" *ngFor="let item of achievementsList"
+                                class="achievements-item">
+                                <img src="../../../assets/icons/star-icon.svg" class="img-fluid">
+                                <div class="achievements-center">
+                                    <p class="achievements-title">{{item}}</p>
+                                </div>
+                                <img src="../../../assets/icons/Goforward.svg" class="img-fluid">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </ng-container>
+    </div>
+</div>
